@@ -42,9 +42,9 @@ role :db,  %w{rails@128.199.89.140}
 # Global options
 # --------------
  set :ssh_options, {
-   keys: %w(/.ssh/vps1),
+   keys: %w(/.ssh/pv),
    forward_agent: false,
-   auth_methods: %w(password)
+   auth_methods: %w(publickey password)
  }
 #
 # The server-based syntax can be used to override options:
