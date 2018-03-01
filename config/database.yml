@@ -3,10 +3,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  # pool: 5
-  # host: localhost
-  # username: rails
-  # password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  pool: 5
+  host: localhost
+  username: rails
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -40,4 +40,4 @@ production:
   <<: *default
   database: rails_project_production
   username: rails
-  password: <%= ENV['RAIL_RAIL_POSTGRESS_PASS'] %>
+  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
