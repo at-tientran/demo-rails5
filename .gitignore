@@ -15,11 +15,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
-/config/database.yml
 /config/secrets.yml
 .byebug_history
 db/schema.rb
 .editorconfig
-#config
+#configa
 /public/javascripts/*
 /public/home/
