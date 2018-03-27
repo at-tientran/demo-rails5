@@ -36,6 +36,7 @@ gem 'dotenv-rails'
 group :development do
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.3", require: false
+  gem 'capistrano-rbenv', '~> 2.1'
 end
 
 group :development, :test do
