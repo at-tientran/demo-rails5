@@ -2,7 +2,7 @@
 lock "~> 3.10.1"
 
 set :application, "demo-rails5"
-set :repo_url, "git@github.com:tienbian/demo-rails5.git"
+set :repo_url, "git@github.com:at-tientran/demo-rails5.git"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -39,3 +39,11 @@ set :pty, true
 # set :ssh_options, verify_host_key: :secure
 append :linked_files, "config/database.yml", "config/secrets.yml"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
+
+after 'deploy:publishing', 'deploy:restart'
+
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:reload'
+  end
+end
