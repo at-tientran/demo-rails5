@@ -21,6 +21,5 @@
 db/schema.rb
 .editorconfig
 #config
-/config/application.yml
 /public/javascripts/*
 /public/home/
