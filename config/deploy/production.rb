@@ -43,7 +43,7 @@ role :db,  %w{rails@167.99.65.74}
 # --------------
  set :ssh_options, {
    keys: %w(/.ssh/id_rsa),
-   forward_agent: false,
+   forward_agent: true,
    auth_methods: %w(publickey password)
  }
 #
