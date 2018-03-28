@@ -12,26 +12,20 @@ preload_app true
 
 listen '/tmp/unicorn.sock', backlog: 64
 
+# If using ActiveRecord, disconnect (from the database) before forking.
 before_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
-  old_pid = "#{root}/tmp/pids/unicorn.pid.oldbin"
-  if old_pid != server.pid
-    begin
-      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
-      Process.kill(sig, File.read(old_pid).to_i)
-    rescue Errno::ENOENT, Errno::ESRCH
-    end
-  end
-
-  sleep 1
+  defined?(ActiveRecord::Base) &&
+    ActiveRecord::Base.connection.disconnect!
 end
 
+# After forking, restore your ActiveRecord connection.
 after_fork do |server, worker|
-  defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+  defined?(ActiveRecord::Base) &&
+    ActiveRecord::Base.establish_connection
 end
 
 # Force the bundler gemfile environment variable to
 # reference the capistrano "current" symlink
 before_exec do |_|
-  ENV['BUNDLE_GEMFILE'] = File.join(root, 'Gemfile')
+  ENV['BUNDLE_GEMFILE'] = "#{root}/Gemfile"
 end
