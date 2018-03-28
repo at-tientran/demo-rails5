@@ -42,8 +42,8 @@ append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bund
 
 after 'deploy:publishing', 'deploy:restart'
 
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
-  end
-end
+# namespace :deploy do
+#   task :restart do
+#     invoke 'unicorn:restart'
+#   end
+# end
