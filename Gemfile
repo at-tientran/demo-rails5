@@ -33,13 +33,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails'
 # Use Capistrano for deployment
-gem 'unicorn'
+# gem 'unicorn'
 group :development do
   gem "capistrano", "~> 3.10", require: false
   gem "capistrano-rails", "~> 1.3", require: false
   gem 'capistrano-rbenv', '~> 2.1'
   gem 'capistrano-bundler'
-  gem 'capistrano3-unicorn', '0.2.1'
+  # gem 'capistrano3-unicorn', '0.2.1'
 end
 
 group :development, :test do

@@ -8,7 +8,7 @@ set :repo_url, "git@github.com:at-tientran/demo-rails5.git"
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/demo-rails5"
+set :deploy_to, "/home/rails/demo-rails5"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
